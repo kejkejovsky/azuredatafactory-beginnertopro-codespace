@@ -1,0 +1,17 @@
+{
+	"name": "az_SQLDB_adf_btp_server",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "adf-btp.database.windows.net",
+			"database": "adf-btp-db",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "CloudSA2d52d9ed",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDQzOUMwQjA4LTJCRTYtNEZBMS1CRjZDLTlGNkY1NURCNTY2MV9lNzFmNzIxOS05ZTQyLTQ1ZDQtYjUzMi1hZWYxOTZmMjlmNjciDQp9"
+		}
+	}
+}
