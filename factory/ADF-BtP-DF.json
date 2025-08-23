@@ -1,0 +1,9 @@
+{
+	"name": "ADF-BtP-DF",
+	"location": "polandcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0e61f488-b9d6-4160-8211-10d4d883de06",
+		"tenantId": "27977e83-ded6-4ede-841d-6af6f2e77ee4"
+	}
+}
