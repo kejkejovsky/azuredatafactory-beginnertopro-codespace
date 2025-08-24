@@ -475,6 +475,35 @@
 									"typeProperties": {
 										"waitTimeInSeconds": 1
 									}
+								},
+								{
+									"name": "usp_UpdateExecutionDate",
+									"type": "SqlServerStoredProcedure",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"storedProcedureName": "[[dbo].[usp_UpdateLastExecutionDate]",
+										"storedProcedureParameters": {
+											"ExecutionDate": {
+												"value": {
+													"value": "@convertFromUtc(pipeline().TriggerTime, 'Central European Standard Time')",
+													"type": "Expression"
+												},
+												"type": "DateTime"
+											}
+										}
+									},
+									"linkedServiceName": {
+										"referenceName": "az_SQLDB_adf_btp_server",
+										"type": "LinkedServiceReference"
+									}
 								}
 							]
 						}
@@ -487,7 +516,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/az_ADLS_InputEmptq')]",
-				"[concat(variables('factoryId'), '/datasets/az_SQLDB_dbo_emp')]"
+				"[concat(variables('factoryId'), '/datasets/az_SQLDB_dbo_emp')]",
+				"[concat(variables('factoryId'), '/linkedServices/az_SQLDB_adf_btp_server')]"
 			]
 		},
 		{
