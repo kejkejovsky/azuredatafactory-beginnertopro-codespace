@@ -1,0 +1,29 @@
+{
+	"name": "az_ADLS_InputEmptq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_ADLS_azfbtp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputEmp_tq.txt",
+				"folderPath": "Source",
+				"fileSystem": "data"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "\"FirstName\"|\"LastName\"",
+				"type": "String"
+			}
+		]
+	}
+}
