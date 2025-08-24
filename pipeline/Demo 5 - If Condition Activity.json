@@ -92,6 +92,17 @@
 						"value": "@greaterOrEquals(\n    addhours(\n        formatDateTime(\n            activity('Get Metadata Last Modified Date').output.lastModified,\n            'o'\n        ),\n        -2\n    ),\n    activity('Lookup Last Execution Date').output.firstRow.ExecutionDate\n)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "False",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "True",
