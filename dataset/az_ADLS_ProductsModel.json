@@ -1,0 +1,33 @@
+{
+	"name": "az_ADLS_ProductsModel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_ADLS_azfbtp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ProductModel_Lookup.txt",
+				"folderPath": "Source",
+				"fileSystem": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ProductModelID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			}
+		]
+	}
+}
