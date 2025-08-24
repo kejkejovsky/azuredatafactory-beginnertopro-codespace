@@ -19,7 +19,15 @@
 					"name": "ProductsModel"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "az_ADLS_ProductFinal",
+						"type": "DatasetReference"
+					},
+					"name": "ProductsFinal"
+				}
+			],
 			"transformations": [
 				{
 					"name": "CombineDatasets"
@@ -100,7 +108,19 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> RemoveDuplicateColumns",
-				"RemoveDuplicateColumns filter(notEquals(ListPrice,0)) ~> RemoveNoListPrice"
+				"RemoveDuplicateColumns filter(notEquals(ListPrice,0)) ~> RemoveNoListPrice",
+				"RemoveNoListPrice sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ID as string,",
+				"          FirstName as string,",
+				"          LastName as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ProductsFinal"
 			]
 		}
 	}
